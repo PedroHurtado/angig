@@ -1,0 +1,47 @@
+class Foo(Bar,Baz):
+
+class Foo extedns(Bar(Baz(class{}))){}
+
+1. En mi sistema existen clientes que se pueden modificar, eliminar,borrar y leer, por contra los 
+usuarios solo se pueden leer
+
+const add =Base=>class extends Base{add(){}}
+const update =Base=>class extends Base{update(){}}
+const remove =Base=>class extends Base{remove(){}}
+const get =Base=>class extends Base{get(){}}
+
+class Customer extends add(update(remove(get(class {})))){
+
+}
+
+class User extends get(class{}){
+
+}
+
+class Customer extends inherit().withMixins(add,uptate,remove,get){}
+class User extends inherit().withMixins(get){}
+
+Cambien la sintaxis de los mixins con reduce
+
+const add =Base=>class extends Base{add(){}}
+const update =Base=>class extends Base{update(){}}
+const remove =Base=>class extends Base{remove(){}}
+const get =Base=>class extends Base{get(){}}
+
+class Mixin{
+    constructor(Base){
+        this.Base = Base
+    }
+    withMixins(...mixins){
+        return mixins.reduceRight((p,m)=>m(p),this.Base)
+
+        //Base+add
+        //Base+add+update
+        //Base+add+update+remove
+        //Base+add+update+remove+get
+    }
+}
+
+function inherit(Base){
+    return new Mixin(Base || class {})
+}

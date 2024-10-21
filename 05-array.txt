@@ -1,0 +1,22 @@
+const data = [1,2,3,4]
+data[0]->1
+data[3]->4
+data[8]->undefined
+
+1. filter->where []  data.filter(v=>v%2===0)  [2,4]
+2. find-> 2     data.find(v=>v%2===0)  2
+3. sort->order
+4. map  data.filter(v=>v%2===0).map(v=v*v) [4,16]
+5. reduce
+    data.reduce((a,v)=>a+v) sum(data) 
+
+    0+1=1
+    1+2=3
+    3+3=6
+    6+4=10
+
+    data.reduce((a,v)=>a+v,100)
+
+    100->110
+Map->Dictionary, HasMap
+Set->Set, HasSet

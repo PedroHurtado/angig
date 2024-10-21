@@ -1,0 +1,32 @@
+1. Dadas las siguientes funciones constructoras
+
+    function Foo(name){
+        this.name = name;
+    }
+
+    function Bar(firstName,lastName){
+        this.firstName = firstName
+        this.lastName = lastName
+    }
+
+crear una funcion factory con la siguiente firma 
+
+    function factory(scope,strCtor, ...args){
+        debugger
+        const ctor = scope[strCtor];
+        if(!ctor){
+            throw `el constructor ${strCtor} no está definido`
+        }
+        const instance = Object.create(ctor.prototype)
+        ctor.apply(instance,args)
+        return instance
+
+    }
+capaz de ejecutar un new sin escribir la palabra new para
+crear instancias de los objetos Foo y Bar
+
+1. Object
+2. Reflexion->obtener el constructor del ambito
+3. Crear la instancia del Objecto
+4. invocar al constructor
+4. devolver la instancia
