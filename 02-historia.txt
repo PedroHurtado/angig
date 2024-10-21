@@ -1,0 +1,41 @@
+>2015->ES6
+class Foo{
+    constructor(name){
+        this.name = name;
+    }
+    write(){
+        this._write()
+    }
+    _write(){
+        console.log(this.name)
+    }
+    static write(){
+        console.log("static method")
+    }
+}
+const foo = new Foo("Pedro")
+
+<2015
+
+//Definición de tipo y constructor
+function Foo(name){
+    this.name = name
+}
+//Metodo private
+Foo.prototype._write = function(){
+    console.log(this.name)
+}
+//Metodo público
+Foo.prototype.write=function(){
+    this._write();
+}
+
+Foo.write = function(){
+    console.log("static method")
+}
+
+//Transpilacion
+    -TypeScript
+    -Babel
+
+https://github.com/tc39/ecma262

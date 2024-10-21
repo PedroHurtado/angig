@@ -1,0 +1,16 @@
+1. Lenguaje debilmente tipado
+    a=1
+    typeof(a)->number
+    a="Hola"
+    typeof(a)->string
+2. Lenguaje dinamico
+    const  foo = {}
+    foo.id=10
+3. Orientado a objetos
+    Object
+    https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object
+    https://developer.mozilla.org/es/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+4. Funcional
+    [1,2,3].filter(v=>v%2==0).mpa(v=v*v)
+5. ejecutar Script
+

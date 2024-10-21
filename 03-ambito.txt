@@ -1,0 +1,61 @@
+1. Asignación de un metodo a una variable
+
+    window.x=10
+    window.foo={
+        x:11,
+        write:function(){
+            console.log(this.x)
+        }
+    }
+
+    console.log(window.foo.write()) //11
+    window.writer = window.foo.write.bind(window.foo);
+    window.writer() //10
+
+    //bind
+
+2. Pasamos una funcion a otro metodo como parametro(callback)
+
+class Bar{
+    constructor(writer){
+        writer() //undefined
+        this.writer = writer
+        this.writer() //Bar
+    }
+}
+
+class Foo{
+    constructor(){
+        //new Bar(this.writer.bind(this))   //1 ejecución del stack
+        new Bar(()=>this.writer()) //2 ejecuciones en el stack
+    }
+    writer(){
+        console.log(this)
+    }
+}
+
+new Foo()
+https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+
+//call
+//apply
+
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function
+
+const bar = {}
+function foo(firstName,lastName){
+    this.firstName = firstName
+    this.lastName = lastName
+}
+
+foo.call(bar,"Pedro","Hurtado")
+
+
+const bar = {}
+function foo(firstName,lastName){
+    this.firstName = firstName
+    this.lastName = lastName
+    debugger
+}
+console.log(this)
+foo.apply(bar,["Pedro","Hurtado"])
