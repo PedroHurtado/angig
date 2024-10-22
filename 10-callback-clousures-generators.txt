@@ -1,0 +1,80 @@
+1. Callback
+    [1,2,3].map(v=>v*v)-> [1,4,9]
+    https://developer.mozilla.org/es/docs/Glossary/Callback_function
+
+    Pasar una funcion como parametro a otra funcion, con la consiguiente
+    perdida de ambito
+
+    La perdida de ambito en este caso se puede solucionar
+        1. Utilizar funciones flecha
+        2. Establecer el ambito con el metodo bind del objeto Function
+
+2.Closures
+    function sum(a){
+        return function(b){
+            debugger
+            return a+b
+        }
+    }
+    const result = sum(5) //function
+    result(100)->105
+    result(30)->35
+
+    crear un objeto con un atributo con valor =5 y un metodo que recibe
+    un argumento b que al invocarlo devuelve la suma
+
+    function events(node,event,cb){
+        node.addEventListener(event,cb)
+        return ()=>node.removeEventListener(event,cb)
+    }
+
+    const dispose = events(document,'click',console.log)
+    dispose()
+
+    function intervals(cb){
+        const handler = setInterval(cb(Date.now()),1000)
+        return ()=>clearInterval(handler)
+    }
+
+    //signal
+
+    function signal(initialValue){
+        let value = initialValue
+        const fn = ()=>value   //getter
+        fn.set = (newValue)=>{
+            if(value!==newValue){
+                //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+                console.log(`value:${value} newValue: ${newValue}`)
+                value=newValue                
+            }            
+        } //setter
+        return fn;
+    }
+
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
+
+3. Generators
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator
+
+    function filter(array,predicate){
+        const newArray=[]
+        for(const value of array){
+            if(predicate(value)){
+                newArray.push(value)
+            }
+        }
+        return newArray
+    }
+
+    1. memoria
+    2. bloqueante
+
+    function* filter(array,predicate){
+        
+        for(const value of array){
+            if(predicate(value)){
+                yield value
+            }
+        }
+        
+    }

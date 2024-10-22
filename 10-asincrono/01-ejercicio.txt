@@ -1,0 +1,23 @@
+console.log("start")                   //sincrono     
+setTimeout(()=>console.log("Timeout"),0) //sincrono -> task
+Promise.resolve()
+    .then(data=>console.log("Promise1"))    //sincrono->microtask
+    .then(data=>console.log("Promise2"))    //sincrono->microtask
+console.log("end")                  //sincrono
+
+¿En que orden se van a imprimir por la consola los resultados?
+
+start                   start
+end                     end
+timeout                 promise1
+promise1                promise2
+promise2                timeout
+
+stack
+microtask
+task
+
+event loop->microtask->task
+
+https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/
+https://www.youtube.com/watch?v=8aGhZQkoFbQ
