@@ -39,3 +39,5 @@ Foo.write = function(){
     -Babel
 
 https://github.com/tc39/ecma262
+https://developer.mozilla.org/en-US/docs/Glossary/Polyfill
+https://www.npmjs.com/package/core-js
