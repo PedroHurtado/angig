@@ -1,0 +1,4 @@
+Module un archivo javascript donde cualquier declaracion es privada excepto que se exporte
+//Browser modernos
+<script src="main.js" type="module"></script>
+<script src="main.old.js" nomodule></script>
